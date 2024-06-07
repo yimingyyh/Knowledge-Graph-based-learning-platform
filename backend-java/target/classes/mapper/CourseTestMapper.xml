@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yyh.backendjava.mapper.CourseTestMapper">
+    <resultMap id="courseTestResultMap" type="com.yyh.backendjava.entity.CourseTest">
+        <id column="test_id" jdbcType="VARCHAR" property="testId"/>
+        <result column="course_name" jdbcType="VARCHAR" property="courseName" />
+        <result column="test_type" jdbcType="VARCHAR" property="testType" />
+        <result column="test_name" jdbcType="VARCHAR" property="testName" />
+        <result column="deleted" jdbcType="INTEGER" property="deleted" />
+        <result column="a" jdbcType="VARCHAR" property="a" />
+        <result column="b" jdbcType="VARCHAR" property="b" />
+        <result column="c" jdbcType="VARCHAR" property="c" />
+        <result column="d" jdbcType="VARCHAR" property="d" />
+        <result column="block" jdbcType="VARCHAR" property="block" />
+        <result column="select_ans" jdbcType="VARCHAR" property="selectAns" />
+    </resultMap>
+
+    <delete id="deleteTestsByName" parameterType="com.yyh.backendjava.entity.CourseTest">
+        delete from course_test where course_name = #{courseName};
+    </delete>
+</mapper>

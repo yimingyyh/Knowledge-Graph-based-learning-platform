@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yyh.backendjava.mapper.CourseInformationMapper">
+    <resultMap id="courseInformationResultMap" type="com.yyh.backendjava.entity.CourseInformation">
+        <id column="course_name" jdbcType="VARCHAR" property="courseName"/>
+        <result column="course_introduction" jdbcType="VARCHAR" property="courseIntroduction" />
+        <result column="course_pptpath" jdbcType="VARCHAR" property="coursePptpath" />
+        <result column="course_practicepath" jdbcType="VARCHAR" property="coursePracticepath" />
+        <result column="course_videopath" jdbcType="VARCHAR" property="courseVideopath" />
+
+    </resultMap>
+    <update id="updateCourseInformation" parameterType="com.yyh.backendjava.entity.CourseInformation">
+        update course_information
+        <set>
+            course_introduction = #{courseIntroduction},
+            course_pptpath = #{coursePptpath},
+            course_practicepath =#{coursePracticepath},
+            course_videopath = #{courseVideopath}
+        </set>
+        where course_name = #{courseName}
+    </update>
+</mapper>
