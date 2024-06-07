@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yyh.backendjava.mapper.DoTestMapper">
+    <resultMap id="doTestResultMap" type="com.yyh.backendjava.entity.DoTest">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="user_id" jdbcType="VARCHAR" property="userId" />
+        <result column="test_id" jdbcType="INTEGER" property="testId" />
+        <result column="select_ans" jdbcType="VARCHAR" property="selectAns" />
+        <result column="block_ans" jdbcType="VARCHAR" property="blockAns" />
+        <result column="score" jdbcType="FLOAT" property="score" />
+        <result column="is_finished" jdbcType="INTEGER" property="isFinished" />
+    </resultMap>
+
+    <select id="findAnsById" resultMap="doTestResultMap">
+        select * from do_test where test_id = #{testId} and user_id = #{userId};
+    </select>
+</mapper>
